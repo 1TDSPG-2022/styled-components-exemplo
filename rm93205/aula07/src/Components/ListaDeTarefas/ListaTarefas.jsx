@@ -45,7 +45,11 @@ export default function ListaTarefas() {
 
     return(
         <DivLista>
-            <FormTarefa/>
+            <FormTarefa
+                capturaDados={captura}
+                adicionarDados={addTarefa}
+                novaTarefa={nTarefa}
+            />
             {tarefa.map((tar,i) =>(
                 <Tarefa
                 key={i}
