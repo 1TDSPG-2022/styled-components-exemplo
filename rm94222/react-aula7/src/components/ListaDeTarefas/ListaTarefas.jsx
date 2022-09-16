@@ -1,17 +1,8 @@
 import React from 'react';
-import styled from 'styled-components'
 import Tarefa from '../tarefa/Tarefas'
 import { useState } from 'react';
+import { DivLista } from '../../style/styled'
 
-const DivLista = styled.div`
-    width: 100%;
-    min-height: 85vh;
-    background-color: #ffb;
-    padding: 20px;
-    border: 2px solid #ccc;
-    display: flex; flex-wrap: wrap;
-    justify-content: space-around;
-`
 export default function ListaTarefas() {
     const [tarefa, setTarefa] = useState([{
             titulo: 'Lista de pagamentos',
