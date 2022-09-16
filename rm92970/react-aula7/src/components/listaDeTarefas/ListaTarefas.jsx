@@ -1,17 +1,10 @@
 import React, { useState } from 'react'
 import Tarefa from '../tarefa/Tarefa'
-import styled from 'styled-components'
+import { DivLista } from '../../style/styled'
+import FormTaerfas from '../FormTarefa/FormTarefas'
+import FormTarefas from '../FormTarefa/FormTarefas'
 
 //CRIANDO O COMPONENTE DE ESTILOS DA ListaDeTarefas
-const DivLista = styled.div`
-    width: 100%;
-    min-height: 85vh;
-    background-color: #ffb;
-    padding: 20px;
-    border: 2px solid #ccc;
-    display: flex; flex-wrap: wrap;
-    justify-content: space-around;
-`
 
 export default function ListaTarefas() {
 
@@ -35,16 +28,53 @@ export default function ListaTarefas() {
         }
     ])
 
+    const addTarefa = ()=>{
+        const novaTarefa = {
+            titulo: "Planilha de Salário",
+            setor : "Dep. Pessoal",
+            descricao : "Gerar Planilhas"
+        }
+
+        setTarefa(([...tarefa, novaTarefa]))
+    }
+
+    //CRIANDO USE-SATE PARA COMPOR OBJETO TAREFA
+
+const[nTarefa, setNTarefa] = useState({"titulo":"","setor":"", "descricao":""})
+
+
+    //CRIAR A FUNCAO DE CAPTURA DOS DADOS DO FORM
+
+    const captura = (e)=>{
+        e.preventDefault()
+        const{name, value} = e.target
+
+        if(name=== "titulo"){
+            setNTarefa({"titulo" : value , "setor" : nTarefa.setor,
+            "descricao" : nTarefa.descricao})
+        }else if(name === "descricao"){
+            setNTarefa({"titulo" : nTarefa.titulo , "setor" : nTarefa.setor, "descricao" : value})
+        }
+    }
+    
+
+
     return (
         <DivLista>
-            {tarefa.map((t, i) =>
+            <FormTarefas
+            capturaDados={captura}
+            adicionarTarefas={addTarefa}
+            novaTarefa={nTarefa}
+            />
+            <button on onClick={addTarefa}>Adicionar</button>
+            {tarefa.map((t, i) =>(
                 <Tarefa
                     key={i}
                     titulo={t.titulo}
                     setor={t.setor}
                     descricao={t.descricao}
                 />
-            )}
+            ))}
         </DivLista>
     )
 }
