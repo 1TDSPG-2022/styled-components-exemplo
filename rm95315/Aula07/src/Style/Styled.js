@@ -29,4 +29,8 @@ export const BtnClose = styled.button`
     max-height : 2vh;
     border: 2px solid #00ff00;
     border-radius: 5px;
+    &:hover{
+        background-color: #0000ff;
+        color: #fff;
+    }
 `
