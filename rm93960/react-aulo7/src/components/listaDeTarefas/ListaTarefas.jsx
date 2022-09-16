@@ -1,17 +1,8 @@
 import React from 'react';
-import styled from 'styled-components'
-import Tarefa from '../Tarefa/Tarefa'
+import Tarefa from '../tarefa/Tarefa'
 import { useState } from 'react';
+import { DivLista } from '../../style/styled'
 
-const DivLista = styled.div`
-    width: 100%;
-    min-height: 85vh;
-    background-color: #ffb;
-    padding: 20px;
-    border: 2px solid #ccc;
-    display: flex; flex-wrap: wrap;
-    justify-content: space-around;
-`
 export default function ListaTarefas() {
     const [tarefa, setTarefa] = useState([{
             titulo: 'Lista de pagamentos',
@@ -30,8 +21,19 @@ export default function ListaTarefas() {
         }
     ])
 
+    const addTarefa = ()=>{
+        const novaTarefa ={
+            titulo: "planilha de salarios",
+            setor: "Dep. pessoal",
+            descricao: "Gerar planilhas",
+        }
+
+        setTarefa([...tarefa, novaTarefa])
+    }
+
     return(
         <DivLista>
+            <button onClick={addTarefa}>Adicionar</button>
             {tarefa.map((tar,i) =>(
                 <Tarefa
                 key={i}
