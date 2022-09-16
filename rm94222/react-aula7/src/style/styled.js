@@ -29,4 +29,8 @@ max-width: 20vw;
 max-height: 20vh;
 border: 2px solid #00ff00;
 border-radius: 5px;
+&:hover{
+    background-color: #0000ff;
+    color: #fff;
+}
 `
