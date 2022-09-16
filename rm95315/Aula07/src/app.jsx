@@ -1,9 +1,11 @@
-import react from 'react'
+import React from 'react'
+import ListaTarefas from './Components/ListaDeTarefas/ListaTarefas'
 
-export default function App(){
-    return(
+export default function App() {
+    return (
         <div>
-            <h1>app</h1>
+            <h1>Estilizando com styled-components</h1>
+            <ListaTarefas/>
         </div>
     )
 }
