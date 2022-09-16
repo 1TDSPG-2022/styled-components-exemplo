@@ -25,8 +25,8 @@ export const DivTarefa = styled.div`
 `
 
 export const BtnClose = styled.button`
-max-width: 10vw;
-max-height: 10vh;
+max-width: 20vw;
+max-height: 20vh;
 border: 2px solid #00ff00;
 border-radius: 5px;
 `
